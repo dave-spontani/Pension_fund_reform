@@ -81,12 +81,30 @@ st.plotly_chart(fig, use_container_width=True)
 
 # Calculate and display difference between 2% and 4% return scenarios
 final_2 = df["2.0%"].iloc[-1]
+final_3 = df["3.0%"].iloc[-1]
 final_4 = df["4.0%"].iloc[-1]
-diff = final_4 - final_2
+final_5 = df["5.0%"].iloc[-1]
+
+diff3_2 = final_3 - final_2
+
+diff4_2 = final_4 - final_2
+
+diff_5_2 = final_5 - final_2
+
+
+st.markdown(f"""
+### 💰 Difference Between 2% and 3% Return Scenarios
+If your pension fund earns **3% annually** (CHF {final_3:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {diff4_2:,.0f}** more.
+""")
 
 st.markdown(f"""
 ### 💰 Difference Between 2% and 4% Return Scenarios
-If your pension fund earns **4% annually** (CHF {final_4:,.0f}) instead of **2%** (CHF {diff:,.0f}), you would retire with approximately **CHF {final_2:,.0f}** more.
+If your pension fund earns **4% annually** (CHF {final_4:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {final_2:,.0f}** more.
+""")
+
+st.markdown(f"""
+### 💰 Difference Between 2% and 5% Return Scenarios
+If your pension fund earns **5% annually** (CHF {final_5:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {final_2:,.0f}** more.
 """)
 
 # Optionally: Show raw data
