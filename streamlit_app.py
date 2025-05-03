@@ -89,7 +89,7 @@ diff3_2 = final_3 - final_2
 
 diff4_2 = final_4 - final_2
 
-diff_5_2 = final_5 - final_2
+diff5_2 = final_5 - final_2
 
 
 st.markdown(f"""
