@@ -62,7 +62,7 @@ diff = final_4 - final_2
 
 st.markdown(f"""
 ### 💰 Difference Between 2% and 4% Return Scenarios
-If your pension fund earns **4% annually** ({final_4:,.0f}) instead of **2%** ({diff:,.0f}), you would retire with approximately **CHF {final_2:,.0f}** more.
+If your pension fund earns **4% annually** (CHF {final_4:,.0f}) instead of **2%** (CHF {diff:,.0f}), you would retire with approximately **CHF {final_2:,.0f}** more.
 """)
 
 # Optionally: Show raw data
