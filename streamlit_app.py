@@ -9,7 +9,7 @@ st.title("Swiss Pension Fund Growth Simulator")
 starting_salary = st.sidebar.slider("Starting Monthly Salary (CHF)", 3000, 15000, 5000, step=100)
 salary_growth_rate = st.sidebar.slider("Annual Salary Growth Rate (%)", 0.0, 5.0, 2.0, step=0.1) / 100
 current_age = st.sidebar.slider("Current Age", 20, 60, 25)
-retirement_age = st.sidebar.slider("Retirement Age", current_age + 1, 70, 61)
+retirement_age = 65
 
 # Constants
 months_per_year = 12
