@@ -53,7 +53,30 @@ df = pd.DataFrame({f"{round(r * 100, 2)}%": savings_over_time[r] for r in intere
 df.index.name = "Age"
 
 # Display interactive chart
-st.line_chart(df)
+import plotly.graph_objects as go
+
+fig = go.Figure()
+
+# Add one trace per interest rate
+for col in df.columns:
+    fig.add_trace(go.Scatter(
+        x=df.index,
+        y=df[col],
+        mode='lines+markers+text',
+        name=col,
+        text=[f"{val:,.0f} CHF" if i == len(df) - 1 else "" for i, val in enumerate(df[col])],
+        textposition="top right"
+    ))
+
+fig.update_layout(
+    title="Pension Fund Growth Over Time",
+    xaxis_title="Age",
+    yaxis_title="Total Pension Savings (CHF)",
+    hovermode="x unified",
+    template="plotly_white"
+)
+
+st.plotly_chart(fig, use_container_width=True)
 
 # Calculate and display difference between 2% and 4% return scenarios
 final_2 = df["2.0%"].iloc[-1]
