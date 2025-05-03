@@ -14,7 +14,7 @@ retirement_age = 65
 # Constants
 months_per_year = 12
 coordination_deduction = 25725  # Fixed for 2024
-interest_rates = [0.0125, 0.02, 0.025, 0.03, 0.035, 0.04, 0.06]
+interest_rates = [0.0125, 0.02, 0.025, 0.03, 0.035, 0.04, 0.05]
 
 bvg_rates = {
     (25, 34): 0.07,
