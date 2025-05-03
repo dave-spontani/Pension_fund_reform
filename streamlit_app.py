@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd
 
 # Streamlit App Title
 st.title("Swiss Pension Fund Growth Simulator")
@@ -9,7 +9,7 @@ st.title("Swiss Pension Fund Growth Simulator")
 starting_salary = st.sidebar.slider("Starting Monthly Salary (CHF)", 3000, 15000, 5000, step=100)
 salary_growth_rate = st.sidebar.slider("Annual Salary Growth Rate (%)", 0.0, 5.0, 2.0, step=0.1) / 100
 current_age = st.sidebar.slider("Current Age", 20, 60, 25)
-retirement_age = 65
+retirement_age = st.sidebar.slider("Retirement Age", current_age + 1, 70, 61)
 
 # Constants
 months_per_year = 12
@@ -32,17 +32,13 @@ def get_bvg_rate(age):
 # Initialize trackers
 savings = {r: 0.0 for r in interest_rates}
 savings_over_time = {r: [] for r in interest_rates}
-annual_contributions = []
-salary_over_time = []
+salary = starting_salary
 
 # Simulation loop
-salary = starting_salary
 for age in range(current_age, retirement_age):
-    salary_over_time.append(round(salary))
     insured_salary = max(0, (salary * months_per_year) - coordination_deduction)
     contribution_rate = get_bvg_rate(age)
     annual_contribution = insured_salary * contribution_rate
-    annual_contributions.append(round(annual_contribution))
 
     for r in interest_rates:
         savings[r] += annual_contribution
@@ -51,15 +47,14 @@ for age in range(current_age, retirement_age):
 
     salary *= (1 + salary_growth_rate)
 
-# Plotting
-fig, ax = plt.subplots(figsize=(10, 6))
-for r in interest_rates:
-    ax.plot(range(current_age, retirement_age), savings_over_time[r], label=f"{round(r * 100, 2)}%", marker="o")
+# Build DataFrame for plotting
+ages = list(range(current_age, retirement_age))
+df = pd.DataFrame({f"{round(r * 100, 2)}%": savings_over_time[r] for r in interest_rates}, index=ages)
+df.index.name = "Age"
 
-ax.set_xlabel("Age")
-ax.set_ylabel("Total Pension Savings (CHF)")
-ax.set_title("Pension Fund Growth Over Time")
-ax.grid(True)
-ax.legend()
+# Display interactive chart
+st.line_chart(df)
 
-st.pyplot(fig)
+# Optionally: Show raw data
+with st.expander("Show data table"):
+    st.dataframe(df)
