@@ -6,7 +6,7 @@ import pandas as pd
 st.title("Swiss Pension Fund Growth Simulator")
 
 # Sidebar Inputs
-starting_salary = st.sidebar.slider("Starting Monthly Salary (CHF)", 3000, 15000, 5000, step=100)
+starting_salary = st.sidebar.slider("Starting Monthly Salary (Brutto CHF)", 3000, 15000, 5000, step=100)
 salary_growth_rate = st.sidebar.slider("Annual Salary Growth Rate (%)", 0.0, 5.0, 2.0, step=0.1) / 100
 current_age = st.sidebar.slider("Current Age", 20, 60, 25)
 retirement_age = 65
