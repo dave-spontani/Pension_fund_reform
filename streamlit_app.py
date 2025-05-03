@@ -55,6 +55,16 @@ df.index.name = "Age"
 # Display interactive chart
 st.line_chart(df)
 
+# Calculate and display difference between 2% and 4% return scenarios
+final_2 = df["2.0%"].iloc[-1]
+final_4 = df["4.0%"].iloc[-1]
+diff = final_4 - final_2
+
+st.markdown(f"""
+### 💰 Difference Between 2% and 4% Return Scenarios
+If your pension fund earns **4% annually** instead of **2%**, you would retire with approximately **CHF {diff:,.0f}** more.
+""")
+
 # Optionally: Show raw data
 with st.expander("Show data table"):
     st.dataframe(df)
