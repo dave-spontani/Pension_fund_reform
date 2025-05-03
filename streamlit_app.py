@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import plotly.graph_objects as go
 
 # Streamlit App Title
 st.title("Swiss Pension Fund Growth Simulator")
@@ -53,7 +54,7 @@ df = pd.DataFrame({f"{round(r * 100, 2)}%": savings_over_time[r] for r in intere
 df.index.name = "Age"
 
 # Display interactive chart
-import plotly.graph_objects as go
+
 
 fig = go.Figure()
 
