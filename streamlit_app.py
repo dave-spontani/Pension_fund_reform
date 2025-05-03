@@ -94,17 +94,17 @@ diff_5_2 = final_5 - final_2
 
 st.markdown(f"""
 ### 💰 Difference Between 2% and 3% Return Scenarios
-If your pension fund earns **3% annually** (CHF {final_3:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {diff4_2:,.0f}** more.
+If your pension fund earns **3% annually** (CHF {final_3:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {diff3_2:,.0f}** more.
 """)
 
 st.markdown(f"""
 ### 💰 Difference Between 2% and 4% Return Scenarios
-If your pension fund earns **4% annually** (CHF {final_4:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {final_2:,.0f}** more.
+If your pension fund earns **4% annually** (CHF {final_4:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {diff4_2:,.0f}** more.
 """)
 
 st.markdown(f"""
 ### 💰 Difference Between 2% and 5% Return Scenarios
-If your pension fund earns **5% annually** (CHF {final_5:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {final_2:,.0f}** more.
+If your pension fund earns **5% annually** (CHF {final_5:,.0f}) instead of **2%** (CHF {final_2:,.0f}), you would retire with approximately **CHF {diff5_2:,.0f}** more.
 """)
 
 # Optionally: Show raw data
